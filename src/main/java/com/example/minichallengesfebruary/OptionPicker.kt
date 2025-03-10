@@ -31,6 +31,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.minichallengesfebruary.ui.theme.PickerBackground
+import com.example.minichallengesfebruary.ui.theme.PickerInactiveText
 
 @Composable
 fun OptionPicker(
@@ -45,8 +48,10 @@ fun OptionPicker(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color(0xFF24005A))
-            .padding(8.dp)
+            .height(48.dp)
+            .clip(RoundedCornerShape(16.dp))
+            .background(PickerBackground)
+            .padding(4.dp)
             .onSizeChanged { rowWidth = it.width }
     ) {
         if (rowWidth > 0) {
@@ -63,7 +68,7 @@ fun OptionPicker(
                     .offset(x = offsetX)
                     .width(optionWidthDp)
                     .height(40.dp)
-                    .clip(RoundedCornerShape(8.dp))
+                    .clip(RoundedCornerShape(12.dp))
                     .background(Color.White)
             )
         }
@@ -77,12 +82,16 @@ fun OptionPicker(
 
                 Text(
                     text = option,
-                    color = if (isSelected) Color.Black else Color.White,
+                    color = if (isSelected) Color.Black else PickerInactiveText,
                     fontWeight = FontWeight.Medium,
+                    fontSize = 14.sp,
                     modifier = Modifier
                         .weight(1f)
                         .height(40.dp)
-                        .clickable { onOptionSelected(option) }
+                        .clickable(
+                            interactionSource = null,
+                            indication = null
+                        ) { onOptionSelected(option) }
                         .wrapContentHeight(Alignment.CenterVertically),
                     textAlign = TextAlign.Center
                 )

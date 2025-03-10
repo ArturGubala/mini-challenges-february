@@ -9,3 +9,7 @@ val Pink80 = Color(0xFFEFB8C8)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+// Option picker
+val PickerBackground = Color(0x148138FF)
+val PickerInactiveText = Color(0xFF24005A)

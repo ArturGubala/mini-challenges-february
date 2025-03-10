@@ -16,6 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.example.minichallengesfebruary.ui.theme.MiniChallengesFebruaryTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +31,9 @@ class MainActivity : ComponentActivity() {
                     val options = listOf("1,000", "1.000", "1 000")
 
                     Column(
-                        modifier = Modifier.padding(padding)
+                        modifier = Modifier
+                            .padding(padding)
+                            .padding(horizontal = 16.dp)
                     ) {
                         Text(text = "Thousands separator")
                         OptionPicker(options = options, selectedOption = selectedOption) {
