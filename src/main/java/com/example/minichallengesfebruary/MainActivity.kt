@@ -27,19 +27,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             MiniChallengesFebruaryTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { padding ->
-                    var selectedOption by remember { mutableStateOf("1,000") }
-                    val options = listOf("1,000", "1.000", "1 000")
+//                    #1 Options picker
+//                    OptionPicker(modifier = Modifier.padding(padding))
 
-                    Column(
-                        modifier = Modifier
-                            .padding(padding)
-                            .padding(horizontal = 16.dp)
-                    ) {
-                        Text(text = "Thousands separator")
-                        OptionPicker(options = options, selectedOption = selectedOption) {
-                            selectedOption = it
-                        }
-                    }
+//                    #2 Battery indicator
+                    BatteryIndicator(modifier = Modifier.padding(padding))
+
                 }
             }
         }

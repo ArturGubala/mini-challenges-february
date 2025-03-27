@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -37,6 +38,24 @@ import com.example.minichallengesfebruary.ui.theme.PickerInactiveText
 
 @Composable
 fun OptionPicker(
+    modifier: Modifier = Modifier,
+) {
+    var selectedOption by remember { mutableStateOf("1,000") }
+    val options = listOf("1,000", "1.000", "1 000")
+
+    Column(
+        modifier = modifier
+            .padding(horizontal = 16.dp)
+    ) {
+        Text(text = "Thousands separator")
+        OptionPicker(options = options, selectedOption = selectedOption) {
+            selectedOption = it
+        }
+    }
+}
+
+@Composable
+private fun OptionPicker(
     options: List<String>,
     selectedOption: String,
     onOptionSelected: (String) -> Unit
